@@ -3,17 +3,15 @@ import logging
 import os
 import sys
 
-from aiogram import Bot, Dispatcher, Router
-from aiogram import types
-from aiogram.filters import CommandStart
+from aiogram import Bot, Dispatcher
+from handlers import handler_start, prophet
+
 
 
 bot = Bot(os.getenv('TOKEN'))
 dp = Dispatcher()
 
-@dp.message()
-async def start(message:types.message):
-    msg = await message.answer(text=message.text)
+dp.include_routers(handler_start.router, prophet.router)
     
 
 
