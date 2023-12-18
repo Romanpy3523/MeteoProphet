@@ -8,6 +8,7 @@ from handlers import handler_start, prophet
 
 
 
+
 bot = Bot(os.getenv('TOKEN'))
 dp = Dispatcher()
 
